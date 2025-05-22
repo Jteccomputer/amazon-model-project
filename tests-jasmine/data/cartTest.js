@@ -1,7 +1,7 @@
-
 import { addToCart, cart, loadFromStorage} from '../../data/cart.js';
 
 describe('test suite: addToCart', () => {
+    
     it('adds an existing product to the cart', () => {
         // We want to mock localStorage.setItem also
         spyOn(localStorage, 'setItem').and.callFake(() => {
