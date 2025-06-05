@@ -5,15 +5,19 @@ import {renderPaymentSummary} from './checkout/paymentSummary.js';
 //import '../data/cart-class.js';
 //import '../data/backend-part.js';
 
-import {loadProducts} from '../data/products.js';
+import {loadProducts, loadProductsFetch} from '../data/products.js';
 import {loadCart} from '../data/cart.js';
 
 Promise.all([
-    new Promise((resolve) => {
-    loadProducts(() => {
+    /*new Promise((resolve) => {
+    loadProductsFetch(() => {
         resolve('value1');
     });
   }),
+  */
+
+  loadProductsFetch(),
+  
   new Promise((resolve) => {
         loadCart(() => {
         resolve('value2');
