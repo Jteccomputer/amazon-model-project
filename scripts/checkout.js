@@ -8,6 +8,28 @@ import {renderPaymentSummary} from './checkout/paymentSummary.js';
 import {loadProducts, loadProductsFetch} from '../data/products.js';
 import {loadCart} from '../data/cart.js';
 
+
+async function loadPage() {
+
+ // here we load the products
+ await loadProductsFetch();
+
+ // next we load the cart
+ await new Promise((resolve) => {
+        loadCart(() => {
+        resolve('value2');
+ });
+});
+
+  // after loading the products and the cart
+  // then render the page
+
+    renderOrderSummary();
+    renderPaymentSummary();
+}
+loadPage();
+
+/*
 Promise.all([
     /*new Promise((resolve) => {
     loadProductsFetch(() => {
@@ -16,8 +38,9 @@ Promise.all([
   }),
   */
 
+  /*
   loadProductsFetch(),
-  
+
   new Promise((resolve) => {
         loadCart(() => {
         resolve('value2');
@@ -29,6 +52,8 @@ Promise.all([
     renderOrderSummary();
     renderPaymentSummary();
 });
+
+*/
 
 /*
 new Promise((resolve) => {
